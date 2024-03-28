@@ -1,0 +1,8 @@
+package DummyMvc.Dao;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class BooksDao {
+
+}

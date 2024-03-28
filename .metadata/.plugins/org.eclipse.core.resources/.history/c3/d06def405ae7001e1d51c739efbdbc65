@@ -1,0 +1,5 @@
+package DummyMvc.Model;
+
+public class Book {
+
+}

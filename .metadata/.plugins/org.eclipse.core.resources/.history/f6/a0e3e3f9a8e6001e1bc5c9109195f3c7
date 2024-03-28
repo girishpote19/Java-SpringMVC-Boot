@@ -1,0 +1,13 @@
+package com.cg.hdfc.dummy.BooksDummyApp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BooksDummyAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BooksDummyAppApplication.class, args);
+	}
+
+}

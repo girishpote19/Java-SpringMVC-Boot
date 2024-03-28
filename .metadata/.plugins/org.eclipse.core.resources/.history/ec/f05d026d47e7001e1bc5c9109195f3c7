@@ -1,0 +1,11 @@
+package com.cg.hdfc.dummy.BooksDummyApp.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MainController {
+
+	public String viewHome() {
+		return "home";
+	}
+}

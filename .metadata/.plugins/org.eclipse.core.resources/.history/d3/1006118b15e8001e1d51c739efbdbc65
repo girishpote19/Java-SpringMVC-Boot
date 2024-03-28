@@ -1,0 +1,18 @@
+<html>
+<head>
+<%@include file="./base.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+</head>
+<body>
+	<div class="container mt-3">
+
+		<div class="row">
+
+			<div class="col-md-12"></div>
+			<h1 class="centered-text">Welcome To Books App</h1>
+
+		</div>
+
+	</div>
+</body>
+</html>

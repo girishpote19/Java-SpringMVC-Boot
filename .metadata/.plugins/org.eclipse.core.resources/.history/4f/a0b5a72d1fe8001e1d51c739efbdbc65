@@ -1,0 +1,64 @@
+<html>
+<%@include file="./base.jsp"%>
+</head>
+<body>
+
+
+	<div class="container mt-3">
+
+		<h1>Add Books Form</h1>
+		<form action="handleBooks" method="post">
+
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label for="Title">Title</label> <input type="text"
+							class="form-control" id="name" name="title"
+							placeholder="Enter Book title">
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label for="author">Author</label> <input type="text"
+							class="form-control" id="designation" name="author"
+							placeholder="Enter Author Name">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label for="Genre">Genre</label> <input type="text"
+							class="form-control" id="department" name="genre"
+							placeholder="Enter genre">
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label for="publicationYear">publicationYear</label> <input type="number"
+							class="form-control" id="salary" name="publicationYear"
+							placeholder="Enter publicationYear">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label for="isbn">Isbn</label>
+						<textarea class="form-control" id="address" name="isbn"
+							rows="5" placeholder="Enter Isbn"> </textarea>
+					</div>
+				</div>
+			</div>
+
+			<a href="${pageContext.request.contextPath }/"
+				class="btn btn-warning"> Back </a>
+			<button type="submit" class="btn btn-primary">Add</button>
+		</form>
+
+	</div>
+
+</body>
+</html>

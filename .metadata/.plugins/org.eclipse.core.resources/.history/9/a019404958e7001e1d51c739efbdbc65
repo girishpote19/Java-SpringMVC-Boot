@@ -1,0 +1,10 @@
+package DummyMvc.Dao;
+
+import javax.persistence.Entity;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class BooksDao {
+
+}

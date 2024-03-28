@@ -1,0 +1,7 @@
+<html>
+<%@includ file="./base.jsp" %>
+<body>
+	<h2>this is the book form</h2>
+	
+</body>
+</html>
