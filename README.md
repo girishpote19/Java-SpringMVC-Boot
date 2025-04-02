@@ -1,1 +1,1 @@
-This is new feature
+Conflicting change
