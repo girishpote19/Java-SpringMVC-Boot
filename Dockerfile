@@ -5,6 +5,6 @@ LABEL maintainer="GirishPote"
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy WAR to webapps
-COPY DummyMVC.war /usr/local/tomcat/webapps/
+COPY target/DummyMVC.war /usr/local/tomcat/webapps/
 
-EXPOSE 8081
+EXPOSE 8080
