@@ -11,7 +11,7 @@ services:
     networks:
       - springmvc-db-net
 
-  mysqldb:
+  mysql:
     image: mysql:8.0
     container_name: mysqldb
     ports:
