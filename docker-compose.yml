@@ -10,8 +10,6 @@ services:
       - mysqldb
     networks:
       - springmvc-db-net
-    volumes:
-      - /data/springmvc-app:/usr/local/tomcat/webapps
 
   mysqldb:
     image: mysql:8.0
