@@ -15,19 +15,15 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-		dir('First-RestAPI') {
                 sh 'mvn clean test'
 
-		}
             }
         }
 
         stage('Package') {
             steps {
-		dir('First-RestAPI') {
                 sh 'mvn clean package -DskipTests'
 		
-		}
             }
         }
 
