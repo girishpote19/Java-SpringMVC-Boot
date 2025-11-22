@@ -31,3 +31,4 @@ Steps :
 12)	WorkBench : created Schema in WB “bookcrud”.
 13)	Created controllers and created jsp pages accordingly 
 -RedirectView (add/delete) will redirect user to specified URL
+14) Implemented CI/CD Jenkins pipeline and after building WAR stored it on NEXUS Repository.
