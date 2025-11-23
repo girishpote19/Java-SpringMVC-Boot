@@ -34,19 +34,13 @@ pipeline {
     }
 
     post {
-    always {
-        emailext(
-            to: "potegirish6@gmail.com",
-            subject: "Build Status: ${currentBuild.currentResult}",
-            body: "Check details: ${env.BUILD_URL}",
-            mimeType: 'text/plain',
-            replyTo: '',
-            attachLog: false,
-            from: "potegirish6@gmail.com",
-            smtpHost: "smtp.gmail.com",
-            useTLS: true
-        )
+        always {
+            emailext(
+                to: "potegirish6@gmail.com",
+                subject: "Build Status: ${currentBuild.currentResult}",
+                body: "Check details: ${env.BUILD_URL}",
+                attachLog: true
+            )
+        }
     }
-}
-
 }
