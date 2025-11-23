@@ -34,13 +34,24 @@ pipeline {
     }
 
     post {
-        always {
+        success {
             emailext(
                 to: "potegirish6@gmail.com",
-                subject: "Build Status: ${currentBuild.currentResult}",
-                body: "Check details: ${env.BUILD_URL}",
-                attachLog: true
+                subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Build succeeded!\nDetails: ${env.BUILD_URL}"
             )
+        }
+
+        failure {
+            emailext(
+                to: "potegirish6@gmail.com",
+                subject: "FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: "Build failed!\nDetails: ${env.BUILD_URL}"
+            )
+        }
+
+        cleanup {
+            cleanWs()
         }
     }
 }
