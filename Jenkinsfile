@@ -73,7 +73,7 @@ pipeline {
             )
         }
 
-        cleanup {
+        always {
             node {
                 cleanWs()
             }
