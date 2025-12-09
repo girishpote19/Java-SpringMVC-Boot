@@ -6,6 +6,11 @@ pipeline {
         jdk 'JAVA_HOME'
     }
 
+    environment {
+        SONAR_SERVER = 'MySonarQube'      // Name configured in Jenkins
+        SONAR_CREDENTIALS = credentials('sonar-token')
+    }
+
     stages {
 
         stage('Checkout') {
@@ -23,6 +28,19 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('MySonarQube') {
+                    sh """
+                        mvn sonar:sonar \
+                        -Dsonar.projectKey=books-crud \
+                        -Dsonar.host.url=$SONAR_HOST_URL \
+                        -Dsonar.login=${SONAR_CREDENTIALS}
+                    """
+                }
             }
         }
 
