@@ -74,7 +74,7 @@ pipeline {
         }
 
         cleanup {
-            script {
+            node {
                 cleanWs()
             }
         }
