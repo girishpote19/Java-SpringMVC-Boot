@@ -6,17 +6,11 @@ pipeline {
         jdk 'JAVA_HOME'
     }
 
-    environment {
-        SONAR_AUTH = credentials('jenkins-Test')   // token from credentials
-        SONAR_SERVER = 'Sonar'
-    }
-
     stages {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/girishpote19/Java-SpringMVC-Boot.git', 
-                    branch: 'BooksCrudOperations'
+                git url: 'https://github.com/girishpote19/Java-SpringMVC-Boot.git', branch: 'BooksCrudOperations'
             }
         }
 
@@ -29,19 +23,6 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
-            }
-        }
-
-        stage('SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv('Sonar') {
-                    sh """
-                        mvn sonar:sonar \
-                        -Dsonar.projectKey=books-crud \
-                        -Dsonar.host.url=$SONAR_HOST_URL \
-                        -Dsonar.login=${SONAR_AUTH}
-                    """
-                }
             }
         }
 
@@ -69,6 +50,8 @@ pipeline {
             )
         }
 
-        // cleanup block removed completely
+        cleanup {
+            cleanWs()
+        }
     }
 }
