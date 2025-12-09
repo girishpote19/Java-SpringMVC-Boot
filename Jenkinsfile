@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         // Sonar token stored as "Secret Text" in Jenkins Credentials
-        SONAR_AUTH = credentials('sonar-token')
+        SONAR_AUTH = credentials('jenkins-Test')
 
         // Jenkins → Manage Jenkins → Configure System → SonarQube Servers
         // Name used here must match that config
