@@ -12,7 +12,7 @@ pipeline {
 
         // Jenkins → Manage Jenkins → Configure System → SonarQube Servers
         // Name used here must match that config
-        SONAR_SERVER = 'MySonarQube'
+        SONAR_SERVER = 'Sonar'
     }
 
     stages {
@@ -37,7 +37,7 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('MySonarQube') {
+                withSonarQubeEnv('Sonar') {
                     sh """
                         mvn sonar:sonar \
                         -Dsonar.projectKey=books-crud \
