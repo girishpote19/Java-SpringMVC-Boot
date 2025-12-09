@@ -7,11 +7,7 @@ pipeline {
     }
 
     environment {
-        // Sonar token stored as "Secret Text" in Jenkins Credentials
-        SONAR_AUTH = credentials('jenkins-Test')
-
-        // Jenkins → Manage Jenkins → Configure System → SonarQube Servers
-        // Name used here must match that config
+        SONAR_AUTH = credentials('jenkins-Test')   // token from credentials
         SONAR_SERVER = 'Sonar'
     }
 
@@ -19,7 +15,8 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/girishpote19/Java-SpringMVC-Boot.git', branch: 'BooksCrudOperations'
+                git url: 'https://github.com/girishpote19/Java-SpringMVC-Boot.git', 
+                    branch: 'BooksCrudOperations'
             }
         }
 
@@ -56,7 +53,6 @@ pipeline {
     }
 
     post {
-
         success {
             emailext(
                 to: "potegirish6@gmail.com",
@@ -73,10 +69,6 @@ pipeline {
             )
         }
 
-        always {
-            node {
-                cleanWs()
-            }
-        }
+        // cleanup block removed completely
     }
 }
