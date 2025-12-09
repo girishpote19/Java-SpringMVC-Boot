@@ -7,8 +7,12 @@ pipeline {
     }
 
     environment {
-        SONAR_SERVER = 'MySonarQube'      // Name configured in Jenkins
-        SONAR_CREDENTIALS = credentials('sonar-token')
+        // Sonar token stored as "Secret Text" in Jenkins Credentials
+        SONAR_AUTH = credentials('sonar-token')
+
+        // Jenkins → Manage Jenkins → Configure System → SonarQube Servers
+        // Name used here must match that config
+        SONAR_SERVER = 'MySonarQube'
     }
 
     stages {
@@ -38,7 +42,7 @@ pipeline {
                         mvn sonar:sonar \
                         -Dsonar.projectKey=books-crud \
                         -Dsonar.host.url=$SONAR_HOST_URL \
-                        -Dsonar.login=${SONAR_CREDENTIALS}
+                        -Dsonar.login=${SONAR_AUTH}
                     """
                 }
             }
@@ -52,6 +56,7 @@ pipeline {
     }
 
     post {
+
         success {
             emailext(
                 to: "potegirish6@gmail.com",
@@ -69,7 +74,9 @@ pipeline {
         }
 
         cleanup {
-            cleanWs()
+            script {
+                cleanWs()
+            }
         }
     }
 }
